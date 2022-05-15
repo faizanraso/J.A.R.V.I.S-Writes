@@ -18,9 +18,16 @@ textarea {
   font-style: italic;
 }
 
-.input-area-div{
+.generate-area-div{
   width: 80%;
   margin: 3% auto 0 auto;
+}
+
+.input-label{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  display:inline-block;
+  margin-bottom: 10px;
 }
 
 .submit-button{
