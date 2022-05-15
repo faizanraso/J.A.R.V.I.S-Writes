@@ -9,7 +9,6 @@ textarea {
   background-color: #f4fbf6;
   box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.2);
   outline: 0;
-
 }
 
 ::placeholder { 
@@ -18,7 +17,12 @@ textarea {
   font-style: italic;
 }
 
-.generate-area-div{
+.input-area-div{
+  width: 80%;
+  margin: 3% auto 0 auto;
+}
+
+.results-div{
   width: 80%;
   margin: 3% auto 0 auto;
 }

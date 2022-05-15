@@ -5,11 +5,11 @@ function Results(props: { prompt: string; response: string; }){
 
 
     return(
-        <div className="results-div">
-            <p>Prompt:</p>
-            <p>{props.prompt}</p>
-            <p>Response:</p>
-            <p>{props.response}</p>
+        <div className="results-card-div">
+            <p className="section-name">Prompt:</p>
+            <p className="prompt">{props.prompt}</p>
+            <p className="section-name">Response:</p>
+            <p className="response">{props.response}</p>
         </div>
     )
 }

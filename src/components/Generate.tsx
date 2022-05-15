@@ -22,7 +22,7 @@ function Generate() {
     event.preventDefault();
 
     if (userInput !== ''){
-      
+
       const data = {
         prompt: `${userInput}`,
         temperature: 0.5,
@@ -60,7 +60,7 @@ function Generate() {
 
   return (
     <>
-    <div className="generate-area-div">
+    <div className="input-area-div">
       <form onSubmit={generateResults}>
         <label className="input-label" htmlFor="user-input">What would you like to write about?</label>
         <textarea
@@ -75,9 +75,11 @@ function Generate() {
       </form>
       <hr className="divider" />
     </div>
-      {resultsArray.map((result, i)=>{
-        <Results key={i} prompt={result.prompt} response={result.response}/>
+    <div className="results-div">
+      {resultsArray.map((result, index)=>{
+        return <Results key={index} prompt={result.prompt} response={result.response}/>
       })}
+    </div>
     </>   
   );
 }
