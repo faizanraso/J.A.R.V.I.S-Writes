@@ -36,8 +36,8 @@ textarea {
 
 .submit-button{
   margin: 1% 0;
-  width: 100px;
-  height: 35px;
+  width: 150px;
+  height: 55px;
   border-radius: 4px;
   background-color: #c0f0cf;
   font-family: 'Montserrat', sans-serif;
@@ -47,6 +47,22 @@ textarea {
 
 .submit-button:hover{
   background-color: #a4d2b3;
+  
+}
+
+.clear-button{
+  margin: 1% 1%;
+  width: 150px;
+  height: 55px;
+  border-radius: 4px;
+  background-color: #f0c0c0;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
+  outline: 0;
+}
+
+.clear-button:hover{
+  background-color: #d2a4a4;
   
 }
 

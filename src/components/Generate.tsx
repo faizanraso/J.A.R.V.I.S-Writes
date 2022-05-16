@@ -14,14 +14,14 @@ function Generate() {
 
 
   useEffect(()=>{
-    if (resultsArray.length !== 0){
-      var retrievedData = JSON.parse(window.localStorage.getItem("resultsArray") || '{}');
-      updateResultsArray(retrievedData);
-    }
+    var retrievedData = JSON.parse(window.localStorage.getItem("resultsArray") as string) || '[]';
+    updateResultsArray(retrievedData);
   }, [])
 
   useEffect(()=>{
-    window.localStorage.setItem('resultsArray', JSON.stringify(resultsArray));
+    if (resultsArray.length !== 0){
+      window.localStorage.setItem('resultsArray', JSON.stringify(resultsArray));
+    }
   }, [output])
 
   async function generateResults(event: React.FormEvent<HTMLFormElement>) {
