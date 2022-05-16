@@ -12,10 +12,17 @@ function Generate() {
   const [output, setOutput] = useState("");
   const [resultsArray, updateResultsArray] = useState<OpenAIresponse[]>([]);
 
-  useEffect(()=>{
-    console.log(resultsArray);
-  }, [output])
 
+  useEffect(()=>{
+    if (resultsArray.length !== 0){
+      var retrievedData = JSON.parse(window.localStorage.getItem("resultsArray") || '{}');
+      updateResultsArray(retrievedData);
+    }
+  }, [])
+
+  useEffect(()=>{
+    window.localStorage.setItem('resultsArray', JSON.stringify(resultsArray));
+  }, [output])
 
   async function generateResults(event: React.FormEvent<HTMLFormElement>) {
 
