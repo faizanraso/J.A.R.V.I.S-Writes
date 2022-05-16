@@ -42,28 +42,38 @@ function Generate() {
       };
       
       //perform POST request
-      const response = await fetch(
-        "https://api.openai.com/v1/engines/text-curie-001/completions",
+      // const response = await fetch(
+      //   "https://api.openai.com/v1/engines/text-curie-001/completions",
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Bearer ${import.meta.env.VITE_OPENAI_SECRET}`,
+      //     },
+      //     body: JSON.stringify(data),
+      //   }
+      // );
+
+      const response = await axios.post(
+        "https://api.openai.com/v1/engines/text-curie-001/completions", JSON.stringify(data),
         {
-          method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${import.meta.env.VITE_OPENAI_SECRET}`,
-          },
-          body: JSON.stringify(data),
+          }
         }
-      );
-        
+      )
+
       //use data retrieved from request to update the results array and output 
-      const aiResponse = await response.json();      
+      const aiResponse = await response.data;  
       setOutput(aiResponse.choices[0].text);
       updateResultsArray((resultsArray) => [
         { prompt: userInput, response: aiResponse.choices[0].text }, // add the new result to the begining of the array, so that when its mapped newer items show first
         ...resultsArray,
       ]);
       setUserInput("");
-    } else {  // in the case the request is not performed
-      console.log("not ran")
+    } else {  
+      console.log("not ran") // in the case the request is not performed
     }
   }
 
