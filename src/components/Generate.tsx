@@ -14,7 +14,7 @@ function Generate() {
 
 
   useEffect(()=>{
-    var retrievedData = JSON.parse(window.localStorage.getItem("resultsArray") as string) || '[]';
+    var retrievedData = JSON.parse(window.localStorage.getItem("resultsArray") as string || '[]');
     updateResultsArray(retrievedData);
   }, [])
 
@@ -64,6 +64,10 @@ function Generate() {
     }
   }
 
+  function clearResults(){
+    localStorage.clear()
+    updateResultsArray([])
+  }
 
   return (
     <>
@@ -76,6 +80,9 @@ function Generate() {
           placeholder="Enter your prompt"
           id="user-input"
         />
+        <button className="clear-button" onClick={clearResults}>
+            Clear Results
+        </button>
         <button className="submit-button" type="submit">
           Submit
         </button>
