@@ -1,31 +1,29 @@
-.results-card-div{
-    width: 100%;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    background-color: #c3d1c7;
-    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.2);
-    outline: 0;
-    word-break: break-all style;
-    margin-top: 2.5%;
+.results-card-div {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #c3d1c7;
+  box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.2);
+  outline: 0;
+  word-break: break-all style;
+  margin-top: 2.5%;
 }
 
-.section-name{
-    display: inline-block;
-    font-style: italic;
-    font-weight: 600;
-    width: 15%;
-    vertical-align: top;
+.section-name {
+  display: inline-block;
+  font-style: italic;
+  font-weight: 600;
+  width: 15%;
+  vertical-align: top;
 }
 
-
-.prompt{
-    display: inline-block;
-    width: 80%;
+.prompt {
+  display: inline-block;
+  width: 80%;
 }
 
-.response{
-    display: inline-block;
-    width: 80%;
-
+.response {
+  display: inline-block;
+  width: 80%;
 }
