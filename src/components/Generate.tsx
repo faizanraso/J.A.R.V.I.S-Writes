@@ -15,18 +15,14 @@ function Generate() {
   const [output, setOutput] = useState("");
   const [resultsArray, updateResultsArray] = useState<OpenAIresponse[]>([]);
   const [submissionError, setSubmissionError] = useState(false);
-  const [aiEngine, setAIEngine] = useState<string>("text-curie-001");
+  const [aiEngine, setAIEngine] = useState<string>(window.localStorage.getItem("aiEngine") as string || "text-curie-001");
 
   //useEffect used to retrieve localStorage
   useEffect(() => {
     var retrievedResults = JSON.parse(
       (window.localStorage.getItem("resultsArray") as string) || "[]"
     );
-    var aiEngine =
-      (window.localStorage.getItem("aiEngine") as string);
     updateResultsArray(retrievedResults);
-    console.log(aiEngine)
-    setAIEngine(aiEngine);
   }, []);
 
   //useEffect used to store values into localStorage
