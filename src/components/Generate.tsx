@@ -1,5 +1,6 @@
 import React, { FormEventHandler, useEffect, useState } from "react";
 import axios from "axios";
+import { useMutation } from "react-query";
 import "../styles/Generate.css";
 import Results from "./Results";
 
@@ -69,6 +70,8 @@ function Generate() {
     }
   }
 
+  const mutation = useMutation(generateResults);
+
   //clear all previous results of the OPENAI API
   function clearResults() {
     localStorage.clear();
@@ -78,7 +81,7 @@ function Generate() {
   return (
     <>
       <div className="input-area-div">
-        <form onSubmit={generateResults}>
+        <form onSubmit={mutation.mutate}>
           <label className="input-label" htmlFor="user-input">
             What would you like to write about?
           </label>
@@ -100,6 +103,7 @@ function Generate() {
       </div>
       <div className="results-div">
         {resultsArray.map((result, index) => {
+          {mutation.isLoading ? console.log('Loading'): null}
           return (
             <Results
               key={index}

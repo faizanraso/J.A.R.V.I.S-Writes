@@ -27,12 +27,3 @@
   display: inline-block;
   width: 80%;
 }
-
-.fade-in-enter {
-  opacity: 1;
-  transition: opacity 700ms ease-out;
-}
-.fade-in-enter-active {
-  opacity: 1;
-  transition: opacity 700ms ease-out;
-}

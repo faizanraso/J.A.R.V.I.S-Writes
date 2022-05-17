@@ -22,7 +22,8 @@ textarea {
   background-color: #f4fbf6;
   outline: 0;
   animation: shake 0.15s ease-in-out 0s 2;
-  box-shadow: 0.5em 0.5em 0.9em red;
+  box-shadow: 0.1em 0.1em 1em #ff4242;
+  border: 1px solid #ff4242;
 }
 
 ::placeholder {
