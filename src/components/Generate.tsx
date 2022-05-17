@@ -12,6 +12,7 @@ function Generate() {
   const [userInput, setUserInput] = useState("");
   const [output, setOutput] = useState("");
   const [resultsArray, updateResultsArray] = useState<OpenAIresponse[]>([]);
+  const [submissionError, setSubmissionError] = useState(0);
 
   //useEffect used to retrieve localStorage
   useEffect(() => {
@@ -30,10 +31,10 @@ function Generate() {
 
   async function generateResults(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setSubmissionError(0);
 
     if (userInput !== "") {
       //Only perform the POST request if the textarea is not blank
-      document.getElementById("user-input")?.classList.remove("blank-search");
       const data = {
         prompt: `${userInput}`,
         temperature: 0.5,
@@ -64,7 +65,7 @@ function Generate() {
       setUserInput("");
     } else {
       console.log("not ran"); // in the case the request is not performed
-      document.getElementById("user-input")?.classList.add("blank-search");
+      setSubmissionError(1);
     }
   }
 
@@ -74,6 +75,29 @@ function Generate() {
     updateResultsArray([]);
   }
 
+  function textArea() {
+    return (
+      <textarea
+        onChange={(e) => setUserInput(e.target.value)}
+        value={userInput}
+        placeholder="Enter your prompt"
+        id="user-input"
+      />
+    );
+  }
+
+  function textAreaError() {
+    return (
+      <textarea
+        className="blank-search"
+        onChange={(e) => setUserInput(e.target.value)}
+        value={userInput}
+        placeholder="Enter your prompt"
+        id="user-input"
+      />
+    );
+  }
+
   return (
     <>
       <div className="input-area-div">
@@ -81,12 +105,7 @@ function Generate() {
           <label className="input-label" htmlFor="user-input">
             What would you like to write about?
           </label>
-          <textarea
-            onChange={(e) => setUserInput(e.target.value)}
-            value={userInput}
-            placeholder="Enter your prompt"
-            id="user-input"
-          />
+          {submissionError ? textAreaError(): textArea()}
           <button className="clear-button" onClick={clearResults}>
             Clear Results
           </button>

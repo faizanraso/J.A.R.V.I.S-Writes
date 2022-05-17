@@ -10,10 +10,6 @@ textarea {
   box-shadow: 0 0 7px 5px rgba(0, 0, 0, 0.2);
   outline: 0;
 }
-.blank-search {
-  animation: shake 0.15s ease-in-out 0s 2;
-  box-shadow: 0.1em 0.1em 0.9em rgb(190, 0, 0);
-}
 
 ::placeholder {
   color: #444444;
@@ -24,6 +20,11 @@ textarea {
 .input-area-div {
   width: 80%;
   margin: 3% auto 0 auto;
+}
+
+.blank-search {
+  animation: shake 0.15s ease-in-out 0s 2;
+  box-shadow: 0.5em 0.5em 0.9em red;
 }
 
 .results-div {
