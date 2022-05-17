@@ -51,7 +51,7 @@ button[disabled]{
 .input-label {
   font-family: "Montserrat", sans-serif;
   color: white;
-  display: inline-block;
+  float: left;
   margin-bottom: 10px;
 }
 

@@ -1,0 +1,19 @@
+label{
+    margin-right: 10px;
+}
+
+select{
+    padding: 3px;
+    width: 155px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    border: 1px solid #999;
+    color: #004c3f;
+    background-color: #f4fbf6;
+    border-radius: 5px;
+}
+
+.dropdown-menu{
+    float: right;
+    color: white;
+}

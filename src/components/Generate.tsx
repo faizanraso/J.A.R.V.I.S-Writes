@@ -1,6 +1,7 @@
 import React, { FormEventHandler, useEffect, useState } from "react";
 import axios from "axios";
 import { useMutation } from "react-query";
+import Dropdown from "./Dropdown";
 import "../styles/Generate.css";
 import Results from "./Results";
 
@@ -14,13 +15,18 @@ function Generate() {
   const [output, setOutput] = useState("");
   const [resultsArray, updateResultsArray] = useState<OpenAIresponse[]>([]);
   const [submissionError, setSubmissionError] = useState(false);
+  const [aiEngine, setAIEngine] = useState("text-curie-001");
 
   //useEffect used to retrieve localStorage
   useEffect(() => {
-    var retrievedData = JSON.parse(
+    var retrievedResults = JSON.parse(
       (window.localStorage.getItem("resultsArray") as string) || "[]"
     );
-    updateResultsArray(retrievedData);
+    var retrievedAIEngine =
+      (window.localStorage.getItem("selectedAIEngine") as string) ||
+      "text-curie-001";
+    updateResultsArray(retrievedResults);
+    setAIEngine(retrievedAIEngine);
   }, []);
 
   //useEffect used to store values into localStorage
@@ -29,6 +35,10 @@ function Generate() {
       window.localStorage.setItem("resultsArray", JSON.stringify(resultsArray));
     }
   }, [output]);
+
+  useEffect(() => {
+    window.localStorage.setItem("selectedAIEngine", aiEngine);
+  }, [aiEngine]);
 
   async function generateResults(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -46,7 +56,7 @@ function Generate() {
       };
 
       const response = await axios.post(
-        "https://api.openai.com/v1/engines/text-curie-001/completions",
+        "https://api.openai.com/v1/engines/" + aiEngine + "/completions",
         JSON.stringify(data),
         {
           headers: {
@@ -66,10 +76,11 @@ function Generate() {
       setUserInput("");
 
       // if error in post request, log the error
-      if (mutation.isError){
-        console.log(mutation.error)
+      if (mutation.isError) {
+        console.log(mutation.error);
       }
 
+      console.log(aiEngine);
     } else {
       console.log("not ran"); // in the case the request is not performed
       setSubmissionError(true);
@@ -84,6 +95,12 @@ function Generate() {
     updateResultsArray([]);
   }
 
+  function dropDownChange(e: {
+    target: { value: React.SetStateAction<string> };
+  }) {
+    setAIEngine(e.target.value);
+  }
+
   return (
     <>
       <div className="input-area-div">
@@ -91,8 +108,11 @@ function Generate() {
           <label className="input-label" htmlFor="user-input">
             What would you like to write about?
           </label>
+          <Dropdown engine={aiEngine} onChange={dropDownChange} />
           <textarea
-            className={submissionError || mutation.isError ? "search-error" : ""}
+            className={
+              submissionError || mutation.isError ? "search-error" : ""
+            }
             onChange={(e) => setUserInput(e.target.value)}
             value={userInput}
             placeholder="Enter your prompt"
@@ -101,7 +121,11 @@ function Generate() {
           <button className="clear-button" type="button" onClick={clearResults}>
             Clear Results
           </button>
-          <button disabled={mutation.isLoading ? true : false} className="submit-button" type="submit">
+          <button
+            disabled={mutation.isLoading ? true : false}
+            className="submit-button"
+            type="submit"
+          >
             {!mutation.isLoading ? "Submit" : "Loading..."}
           </button>
         </form>
