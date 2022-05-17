@@ -15,18 +15,18 @@ function Generate() {
   const [output, setOutput] = useState("");
   const [resultsArray, updateResultsArray] = useState<OpenAIresponse[]>([]);
   const [submissionError, setSubmissionError] = useState(false);
-  const [aiEngine, setAIEngine] = useState("text-curie-001");
+  const [aiEngine, setAIEngine] = useState<string>("text-curie-001");
 
   //useEffect used to retrieve localStorage
   useEffect(() => {
     var retrievedResults = JSON.parse(
       (window.localStorage.getItem("resultsArray") as string) || "[]"
     );
-    var retrievedAIEngine =
-      (window.localStorage.getItem("selectedAIEngine") as string) ||
-      "text-curie-001";
+    var aiEngine =
+      (window.localStorage.getItem("aiEngine") as string);
     updateResultsArray(retrievedResults);
-    setAIEngine(retrievedAIEngine);
+    console.log(aiEngine)
+    setAIEngine(aiEngine);
   }, []);
 
   //useEffect used to store values into localStorage
@@ -37,7 +37,7 @@ function Generate() {
   }, [output]);
 
   useEffect(() => {
-    window.localStorage.setItem("selectedAIEngine", aiEngine);
+    window.localStorage.setItem("aiEngine", aiEngine);
   }, [aiEngine]);
 
   async function generateResults(event: React.FormEvent<HTMLFormElement>) {
