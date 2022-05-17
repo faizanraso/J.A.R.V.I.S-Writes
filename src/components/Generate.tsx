@@ -64,6 +64,12 @@ function Generate() {
         ...resultsArray,
       ]);
       setUserInput("");
+
+      // if error in post request, log the error
+      if (mutation.isError){
+        console.log(mutation.error)
+      }
+
     } else {
       console.log("not ran"); // in the case the request is not performed
       setSubmissionError(true);
@@ -86,7 +92,7 @@ function Generate() {
             What would you like to write about?
           </label>
           <textarea
-            className={submissionError ? "blank-search" : ""}
+            className={submissionError || mutation.isError ? "search-error" : ""}
             onChange={(e) => setUserInput(e.target.value)}
             value={userInput}
             placeholder="Enter your prompt"
@@ -95,15 +101,14 @@ function Generate() {
           <button className="clear-button" type="button" onClick={clearResults}>
             Clear Results
           </button>
-          <button className="submit-button" type="submit">
-            Submit
+          <button disabled={mutation.isLoading ? true : false} className="submit-button" type="submit">
+            {!mutation.isLoading ? "Submit" : "Loading..."}
           </button>
         </form>
         <hr className="divider" />
       </div>
       <div className="results-div">
         {resultsArray.map((result, index) => {
-          {mutation.isLoading ? console.log('Loading'): null}
           return (
             <Results
               key={index}

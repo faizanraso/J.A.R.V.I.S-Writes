@@ -11,7 +11,13 @@ textarea {
   outline: 0;
 }
 
-.blank-search {
+button:disabled,
+button[disabled]{
+  border: 1px solid #acd5b9;
+  color: #4b4b4b;
+}
+
+.search-error {
   width: 100%;
   height: 250px;
   padding: 12px 20px;
