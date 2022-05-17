@@ -12,7 +12,7 @@ function Generate() {
   const [userInput, setUserInput] = useState("");
   const [output, setOutput] = useState("");
   const [resultsArray, updateResultsArray] = useState<OpenAIresponse[]>([]);
-  const [submissionError, setSubmissionError] = useState(0);
+  const [submissionError, setSubmissionError] = useState(false);
 
   //useEffect used to retrieve localStorage
   useEffect(() => {
@@ -31,7 +31,7 @@ function Generate() {
 
   async function generateResults(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmissionError(0);
+    setSubmissionError(false);
 
     if (userInput !== "") {
       //Only perform the POST request if the textarea is not blank
@@ -65,7 +65,7 @@ function Generate() {
       setUserInput("");
     } else {
       console.log("not ran"); // in the case the request is not performed
-      setSubmissionError(1);
+      setSubmissionError(true);
     }
   }
 
@@ -75,29 +75,6 @@ function Generate() {
     updateResultsArray([]);
   }
 
-  function textArea() {
-    return (
-      <textarea
-        onChange={(e) => setUserInput(e.target.value)}
-        value={userInput}
-        placeholder="Enter your prompt"
-        id="user-input"
-      />
-    );
-  }
-
-  function textAreaError() {
-    return (
-      <textarea
-        className="blank-search"
-        onChange={(e) => setUserInput(e.target.value)}
-        value={userInput}
-        placeholder="Enter your prompt"
-        id="user-input"
-      />
-    );
-  }
-
   return (
     <>
       <div className="input-area-div">
@@ -105,8 +82,14 @@ function Generate() {
           <label className="input-label" htmlFor="user-input">
             What would you like to write about?
           </label>
-          {submissionError ? textAreaError(): textArea()}
-          <button className="clear-button" onClick={clearResults}>
+          <textarea
+            className={submissionError ? "blank-search" : ""}
+            onChange={(e) => setUserInput(e.target.value)}
+            value={userInput}
+            placeholder="Enter your prompt"
+            id="user-input"
+          />
+          <button className="clear-button" type="button" onClick={clearResults}>
             Clear Results
           </button>
           <button className="submit-button" type="submit">

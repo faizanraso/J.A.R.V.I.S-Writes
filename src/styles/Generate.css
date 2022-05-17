@@ -11,6 +11,20 @@ textarea {
   outline: 0;
 }
 
+.blank-search {
+  width: 100%;
+  height: 250px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: none;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f4fbf6;
+  outline: 0;
+  animation: shake 0.15s ease-in-out 0s 2;
+  box-shadow: 0.5em 0.5em 0.9em red;
+}
+
 ::placeholder {
   color: #444444;
   opacity: 0.3;
@@ -20,11 +34,6 @@ textarea {
 .input-area-div {
   width: 80%;
   margin: 3% auto 0 auto;
-}
-
-.blank-search {
-  animation: shake 0.15s ease-in-out 0s 2;
-  box-shadow: 0.5em 0.5em 0.9em red;
 }
 
 .results-div {
