@@ -7,7 +7,8 @@ was created for the 2022 Fall Shopify Front-End Internship application. Some of 
 
 This project can be used/tested at the following links: 
 
-Replit: https://shopify-openai-challenge.faizanraso.repl.co/ /n
+Replit: https://shopify-openai-challenge.faizanraso.repl.co/
+<br>
 Railway: https://shopify-openai-challenge-production.up.railway.app/
 
 ### Feautures Included: 
@@ -25,6 +26,7 @@ Railway: https://shopify-openai-challenge-production.up.railway.app/
 This project can be used/tested at the following links: 
 
 Replit: https://shopify-openai-challenge.faizanraso.repl.co/
+<br>
 Railway: https://shopify-openai-challenge-production.up.railway.app/
 
 The demo video below shows the project being used and its various features.
