@@ -22,6 +22,5 @@ This project can be used/tested at the following link: https://shopify-openai-ch
 The demo video below shows the project being used and its various features.
 
 
-
-https://user-images.githubusercontent.com/59986120/168950750-3d4253b1-c430-4443-a385-acb21abbdb36.mov
+https://user-images.githubusercontent.com/59986120/168950851-256adeea-1986-4fdc-a9d4-83d0019dfb23.mov
 
