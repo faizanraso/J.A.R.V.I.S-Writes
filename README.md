@@ -5,7 +5,10 @@
 J.A.R.V.I.S (Just A Rather Very Intelligent System) Writes is a web-app that takes a user entered prompt and returns a AI generated response. This project
 was created for the 2022 Fall Shopify Front-End Internship application. Some of the technologies used in this project include React, TypeScript, Axios, react-query and localStorage
 
-This project can be used/tested at the following link: https://shopify-openai-challenge-production.up.railway.app/
+This project can be used/tested at the following links: 
+
+Replit: https://shopify-openai-challenge.faizanraso.repl.co/
+Railway: https://shopify-openai-challenge-production.up.railway.app/
 
 ### Feautures Included: 
 
@@ -19,7 +22,10 @@ This project can be used/tested at the following link: https://shopify-openai-ch
 
 
 ### Demo:
-This project can be used/tested at the following link: https://shopify-openai-challenge-production.up.railway.app/
+This project can be used/tested at the following links: 
+
+Replit: https://shopify-openai-challenge.faizanraso.repl.co/
+Railway: https://shopify-openai-challenge-production.up.railway.app/
 
 The demo video below shows the project being used and its various features.
 
