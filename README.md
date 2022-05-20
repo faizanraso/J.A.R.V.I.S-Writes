@@ -1,4 +1,4 @@
-# Shopify-OpenAI-Challenge
+# J.A.R.V.I.S Writes
 
 ### Description:
 
