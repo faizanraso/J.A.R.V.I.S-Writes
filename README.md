@@ -6,7 +6,7 @@ J.A.R.V.I.S (Just A Rather Very Intelligent System) Writes is a web-app that tak
 
 This project can be used/tested at the following links: 
 
-Replit: https://shopify-openai-challenge.faizanraso.repl.co/
+Replit: https://jarvis-writes.faizanraso.repl.co/
 <br>
 Railway: https://shopify-openai-challenge-production.up.railway.app/
 
@@ -24,7 +24,7 @@ Railway: https://shopify-openai-challenge-production.up.railway.app/
 ### Demo:
 This project can be used/tested at the following links: 
 
-Replit: https://shopify-openai-challenge.faizanraso.repl.co/
+Replit: https://jarvis-writes.faizanraso.repl.co/
 <br>
 Railway: https://shopify-openai-challenge-production.up.railway.app/
 
