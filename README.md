@@ -26,7 +26,6 @@ This project can be used/tested at the following links:
 
 Replit: https://jarvis-writes.faizanraso.repl.co/
 <br>
-Railway: https://shopify-openai-challenge-production.up.railway.app/
 
 The demo video below shows the project being used and its various features.
 
