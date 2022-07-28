@@ -29,5 +29,8 @@ Replit: https://jarvis-writes.faizanraso.repl.co/
 The demo video below shows the project being used and its various features.
 
 
-https://user-images.githubusercontent.com/59986120/168950851-256adeea-1986-4fdc-a9d4-83d0019dfb23.mov
+
+https://user-images.githubusercontent.com/59986120/181494639-250bec05-8e58-4e84-b31d-7b07aaa33513.mov
+
+
 
